@@ -87,7 +87,7 @@ router.post('/forgetpassword', async (req, res) => {
           from: 'noreply.mail123321@gmail.com',
           to: 'josephvijayj17bca015@gmail.com',
           subject: 'Forget password',
-          html: `<a href="http://localhost:3000/resetpassword/${token}">Password reset link ...</a>`,
+          html: `<a href="https://unique-creponne-54302e.netlify.app/resetpassword/${token}">Password reset link ...</a>`,
         };
 
         mailTransporter.sendMail(mailDetails, function (err, data) {
