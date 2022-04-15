@@ -12,17 +12,19 @@ const orderRoute = require('./routes/order');
 const stripeRoute = require('./routes/stripe');
 dotenv.config();
 
+let options = {
+  origin: '*',
+};
+app.use(cors(options));
+app.use(express.json());
+
 //DB CONNECTION
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log('Mongo connection successfull'))
   .catch((error) => console.log(error));
 /////////////////////////////////////////////////////////////
-let options = {
-  origin: '*',
-};
-app.use(cors(options));
-app.use(express.json());
+
 app.use('/api/auth/', authRoute);
 app.use('/api/users/', userRoute);
 app.use('/api/products', productRoute);
